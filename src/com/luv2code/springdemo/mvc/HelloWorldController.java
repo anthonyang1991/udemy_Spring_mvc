@@ -10,13 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/hello")
 public class HelloWorldController {
-
 	// need a controller method to show inital html form
 	@RequestMapping("/showForm")
 	public String showForm() {
 		return "helloworld-form";
 	}
-
 	// need a controller method to process the html form
 
 	@RequestMapping("/processForm")
@@ -26,10 +24,8 @@ public class HelloWorldController {
 
 	@RequestMapping("/processFormVersionTwo")
 	public String letsShoutDude(HttpServletRequest request, Model model) {
-
 		// read the request parameter from html form
 		String nameAllCaps = request.getParameter("studentName").toUpperCase();
-
 		String result = "Yo! Yo! " + nameAllCaps;
 		// add message to model
 		model.addAttribute("message", result);
@@ -37,9 +33,7 @@ public class HelloWorldController {
 	}
 
 	@RequestMapping("/processFormVersionThree")
-	public String processFormVersionThree(@RequestParam("studentName") String theName, Model model)
-
-	{
+	public String processFormVersionThree(@RequestParam("studentName") String theName, Model model) {
 		String result = "Hello my friend! " + theName.toUpperCase();
 		// add message to model
 		model.addAttribute("message", result);
